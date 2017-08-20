@@ -1,69 +1,16 @@
-<div class="jumbotron">
-  <div class="container">
-    <ngb-alert type="success" [dismissible]="false">
-      Bootstrap is working!
-    </ngb-alert>
-
-    <h1>
-      <i class="fa fa-bath" aria-hidden="true"></i>
-      And so is Font Awesome!
-    </h1>
-  </div>
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes" 
+  [class.selected]="hero === selectedHero"
+  (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+<div *ngIf="selectedHero">
+<h2>{{selectedHero.name}} details!</h2>
+<div><label>id: </label>{{selectedHero.id}}</div>
+<div>
+    <label>name: </label>
+    <input [(ngModel)]="selectedHero.name" placeholder="name"/>
 </div>
-
-<div class="container">
-  <p>
-    A progress bar:
-    <ngb-progressbar showValue="true" type="success" [value]="65">
-    </ngb-progressbar>
-  </p>
 </div>
-
-<div class="container">
-  <ngb-tabset>
-    <ngb-tab title="Bacon">
-        <ng-template ngbTabContent>
-          <p class="mt-4">Content for tab 1.
-            <button type="button"
-                    class="btn btn-secondary"
-                    placement="bottom"
-                    ngbPopover="A popover in tab 1"
-                    popoverTitle="Bacon is good">
-              Click me
-            </button>
-          </p>
-        </ng-template>
-      </ngb-tab>
-      <ngb-tab title="Lettuce">
-        <ng-template ngbTabContent>
-          <p>Content for tab 2</p>
-        </ng-template>
-      </ngb-tab>
-      <ngb-tab title="Tomatoes">
-        <ng-template ngbTabContent>
-          <p>Content for tab 3</p>
-        </ng-template>
-      </ngb-tab>
-    </ngb-tabset>
-</div>
-
-<ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">Modal title</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <p>One fine body&hellip;</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
-  </div>
-</ng-template>
-
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
-
-<hr>
-
-<pre>{{closeResult}}</pre>
