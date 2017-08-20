@@ -27,3 +27,11 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 # angular-tour-of-heroes
+
+
+# To Added Bootstarp4 and font-awesome dependency
+$ npm install --save @ng-bootstrap/ng-bootstrap bootstrap@4.0.0-alpha.6 font-awesome
+Add the following in the styles array of the .angular-cli.json file 
+"../node_modules/bootstrap/dist/css/bootstrap.min.css",
+"../node_modules/font-awesome/css/font-awesome.min.css"
+
